@@ -39,19 +39,19 @@ export default class Queue<T> {
 
         this.length--;
         // Save head
-        const head = this.head;
+        const current = this.head;
 
         //Update the head
         this.head = this.head.next;
 
         // free
-        head.next = undefined;
+        current.next = undefined;
 
         if (this.length === 0) {
             this.tail = undefined;
         }
 
-        return head.value;
+        return current.value;
 
     }
     // View first element from queue

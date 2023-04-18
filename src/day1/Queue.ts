@@ -16,13 +16,17 @@ export default class Queue<T> {
     // Add to queue
     enqueue(item: T): void {
         const node = {value: item} as Node<T>;
+        // Increase length
         this.length++;
         if(!this.tail) {
             this.tail = this.head = node;
             return;
         }
 
+        // The item tail next is pointing to should point to the node
         this.tail.next = node;
+
+        // The tail should change its pointer to the node  
         this.tail = node;
 
 }
